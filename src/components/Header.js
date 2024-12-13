@@ -1,8 +1,15 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = ({ isLoggedIn, toggleLogin }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    toggleLogin(); // Toggles the logged-in state
+    navigate('/'); // Redirects to the home page
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -18,11 +25,14 @@ const Header = ({ isLoggedIn, toggleLogin }) => {
           alignItems: 'center', // Align links and title to the center
         }}
       >
-        {/* Swidel Heroes Title */}
+        {/* Swidel Heroes Title - Clickable */}
         <Typography
           variant="h6"
+          component="div"
+          onClick={() => navigate('/')} // Redirect to home page on click
           sx={{
             fontWeight: 'bold',
+            cursor: 'pointer', // Add pointer cursor to indicate clickable
             '& span': { color: 'green' }, // Green for "Heroes"
           }}
         >
@@ -64,7 +74,7 @@ const Header = ({ isLoggedIn, toggleLogin }) => {
                 Orders
               </Link>
               <Button
-                onClick={toggleLogin}
+                onClick={handleLogout} // Calls handleLogout
                 sx={buttonStyle}
               >
                 Logout

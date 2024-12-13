@@ -1,28 +1,74 @@
 import React from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { Box, Typography, TextField, Button } from '@mui/material';
 
+const LoginPage = ({ toggleLogin }) => {
+  const navigate = useNavigate();
 
-const Login = ({ toggleLogin }) => {
-  const navigate = useNavigate()
-  const handleLogin = () => {
-    // Add authentication logic here (if any)
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Simulate login logic here
     toggleLogin();
-    navigate('/')
+    navigate('/');
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }}>
-      <Typography variant="h4" gutterBottom>
-        Login
-      </Typography>
-      <TextField fullWidth label="Email" margin="normal" variant="outlined" />
-      <TextField fullWidth label="Password" margin="normal" variant="outlined" type="password" />
-      <Button onClick={handleLogin} variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-        Login
-      </Button>
+    <Box
+      sx={{
+        height: '100vh', // Full view height
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center', // Center content vertically and horizontally
+        backgroundColor: '#f5f5f5', // Optional background color
+      }}
+    >
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '400px',
+          p: 4,
+          backgroundColor: '#fff',
+          boxShadow: 3,
+          borderRadius: 2,
+        }}
+      >
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: 'bold', textAlign: 'center' }}>
+          Login
+        </Typography>
+        <form onSubmit={handleLogin}>
+          <TextField
+            label="Email"
+            type="email"
+            fullWidth
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            required
+            sx={{ mb: 3 }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ mb: 2 }}
+          >
+            Login
+          </Button>
+        </form>
+        <Typography variant="body2" sx={{ textAlign: 'center' }}>
+          Don't have an account?{' '}
+          <a href="/register" style={{ color: '#1976d2', textDecoration: 'none' }}>
+            Register here
+          </a>
+        </Typography>
+      </Box>
     </Box>
   );
 };
 
-export default Login;
+export default LoginPage;
