@@ -25,6 +25,12 @@ const theme = createTheme({
   },
 });
 
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLoginToggle = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
