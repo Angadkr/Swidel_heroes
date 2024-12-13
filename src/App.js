@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React, { useState } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -25,22 +27,25 @@ const theme = createTheme({
   },
 });
 
-const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLoginToggle = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Function to toggle login state
+  const toggleLogin = () => {
+    setIsLoggedIn((prevState) => !prevState);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin}/>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} />} />
+          <Route path="/login" element={<Login toggleLogin={toggleLogin}/>} />
+          <Route path="/register" element={<Register toggleLogin={toggleLogin}/>} />
           <Route path="/profile" element={<DeliveryBoyProfile />} />
           <Route path="/pickup-drop" element={<PickupAndDrop />} />
           <Route path="/leaderboard" element={<Leaderboard />} />

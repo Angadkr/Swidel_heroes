@@ -18,13 +18,45 @@ export const deliveryBoy = {
   
   // Sample data for shops
   export const shops = [
-    { id: 1, name: "Fresh Mart", latitude: 37.7749, longitude: -122.4194 },
-    { id: 2, name: "Grocery Hub", latitude: 37.7849, longitude: -122.4094 },
-    { id: 3, name: "Veggie World", latitude: 37.7949, longitude: -122.3994 },
-    { id: 4, name: "Bakery Bliss", latitude: 37.8049, longitude: -122.3894 },
-    { id: 5, name: "Dairy Delight", latitude: 37.8149, longitude: -122.3794 },
+    { id: 1, name: "Ajay Singh" ,shopName:"Ajay Electronics",contact:9950449968, latitude: 28.613500, longitude: 77.249000 },
+    { id: 2, name: "Vijay devakar" ,shopName:"V-Mart",contact:9990449968, latitude: 28.615000, longitude: 77.208500 },
+    { id: 3, name: "Rahul Mehta",shopName:"Rahul Medicos",contact:8950889968,latitude: 28.612800, longitude: 77.237200 },
+    { id: 4, name: "Mohan",shopName:"Mohan Provisional store",contact:7929449968, latitude: 28.618000, longitude:  77.228800 },
+    { id: 5, name: "Shriyam",shopName:"Maha clothing store",contact:9850443468, latitude: 28.613500, longitude: 77.229800 },
   ];
   
+  export const users = [
+    { id:1,
+      name: "Rahul Sharma",
+      contact: "+91-9876543210",
+      latitude: 28.618700,
+      longitude: 77.229900,
+    },
+    { id:2,
+      name: "Priya Verma",
+      contact: "+91-8765432109",
+      latitude: 28.610100,
+      longitude: 77.230500,
+    },
+    { id:3,
+      name: "Aman Khurana",
+      contact: "+91-9988776655",
+      latitude: 28.617600,
+      longitude: 77.220800,
+    },
+    { id:4,
+      name: "Neha Gupta",
+      contact: "+91-8899776655",
+      latitude: 28.610900,
+      longitude: 77.220000,
+    },
+    { id:5,
+      name: "Rajesh Mehta",
+      contact: "+91-7788995544",
+      latitude: 28.617200,
+      longitude: 77.230700,
+    },
+  ];
   // Sample data for products to be delivered
   export const orders = [
     { id: 1, pickup: "Fresh Mart", drop: "Customer A", items: ["Apples", "Milk"] },

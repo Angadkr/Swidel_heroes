@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ toggleLogin }) => {
+  const navigate = useNavigate()
+  const handleLogin = () => {
+    // Add authentication logic here (if any)
+    toggleLogin();
+    navigate('/')
+  };
   return (
     <div>
       <h2>Register</h2>
@@ -14,7 +21,7 @@ const Register = () => {
         <label>Password:</label>
         <input type="password" placeholder="Enter your password" />
         <br />
-        <button type="submit">Register</button>
+        <button onClick={handleLogin}>Register</button>
       </form>
     </div>
   );
